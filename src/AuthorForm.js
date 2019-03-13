@@ -20,11 +20,16 @@ class AuthorForm extends Component {
     this.props.postAuthor(this.state, this.props.closeModal);
   };
 
+  textChangeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
   render() {
     const errors = this.props.errors;
 
     return (
       <div className="mt-5 p-2">
+       
         <form onSubmit={this.submitAuthor}>
           {!!errors.length && (
             <div className="alert alert-danger" role="alert">
@@ -33,23 +38,61 @@ class AuthorForm extends Component {
               ))}
             </div>
           )}
+
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text">First Name</span>
             </div>
-            <input type="text" className="form-control" name="first_name" />
+            
+            {
+              //INPUT 1
+            }
+
+            <input
+              type="text"
+              value={this.state.first_name} 
+              className="form-control" 
+              name="first_name" 
+              onChange={this.textChangeHandler}
+            />
+
           </div>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text">Last Name</span>
             </div>
-            <input type="text" className="form-control" name="last_name" />
+            
+            {
+              //INPUT 2
+            }
+
+            <input
+              type="text"
+              value={this.state.last_name}
+              className="form-control"
+              name="last_name" 
+              onChange={this.textChangeHandler}
+            />
+
           </div>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text">Image URL</span>
             </div>
-            <input type="text" className="form-control" name="imageUrl" />
+            
+            {
+              //INPUT 3
+            }
+
+            <input 
+              type="text"
+              value={this.state.imageUrl} 
+              className="form-control" 
+              name="imageUrl" 
+              onChange={this.textChangeHandler}
+            />
+
           </div>
           <input type="submit" />
         </form>

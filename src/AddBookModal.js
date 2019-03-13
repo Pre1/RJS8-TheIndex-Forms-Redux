@@ -13,7 +13,9 @@ class AddBookModal extends Component {
   onCloseModal = () => this.setState({ open: false });
 
   render() {
+    // ##ASK## why the lhs curely braces
     const { open } = this.state;
+
     return (
       <div>
         <Modal open={open} onClose={this.onCloseModal} center>
